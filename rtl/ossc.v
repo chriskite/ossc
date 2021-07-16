@@ -174,7 +174,7 @@ assign LED_R = HSYNC_in_L;
 assign LED_G = VSYNC_in_L;
 `else
 assign LED_R = lt_active ? lt_trig_waiting : (pll_lock_lost|h_unstable);
-assign LED_G = lt_active ? ~lt_sensor : (ir_code == 0);
+assign LED_G = lt_active ? lt_sensor : (ir_code != 0);
 `endif
 
 assign SD_DAT[3] = sys_ctrl[7]; //SD_SPI_SS_N
